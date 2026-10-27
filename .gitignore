@@ -2,3 +2,4 @@ data/raw/
 data/interim/
 results/
 *.nc
+.env

@@ -6,6 +6,7 @@
 docker run --rm -it \
   --user "$(id -u):$(id -g)" \
   --shm-size=2g \
+  --env-file .env \
   -v "$PWD":/work \
   -w /work \
   -p 8888:8888 \

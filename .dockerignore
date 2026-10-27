@@ -3,3 +3,4 @@ data/
 forcing/
 results/
 *.nc
+.env
