@@ -1,0 +1,23 @@
+# Pakete für das 3D-Image (alle aus conda-forge)
+# FAIR: nach dem ersten Build Versionen festschreiben mit
+#   ./run.sh micromamba env export > environment.lock.yml
+name: base
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  # Modell: pygetm bringt GETM-Kern, FABM (inkl. ERGOM) und MPI mit
+  - pygetm=0.9.23
+  # Daten herunterladen
+  - cdsapi              # ERA5 (Copernicus Climate Data Store)
+  - copernicusmarine    # Reanalyse, Ocean Colour (Copernicus Marine)
+  # Daten aufbereiten und aufs Gitter bringen
+  - xarray
+  - netcdf4
+  - scipy
+  - pyproj
+  - xesmf               # Umrechnen zwischen Gittern
+  - pandas
+  # Auswerten und Plotten
+  - matplotlib
+  - jupyterlab
