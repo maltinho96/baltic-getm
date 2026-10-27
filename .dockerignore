@@ -1,0 +1,5 @@
+.git/
+data/
+forcing/
+results/
+*.nc
