@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Startet JupyterLab im Container. Danach den angezeigten Link (127.0.0.1:8888/...) im Browser öffnen.
+# Nur einmal gleichzeitig startbar, weil Port 8888 fest belegt wird.
+docker run --rm -it \
+  --user "$(id -u):$(id -g)" \
+  --env-file .env \
+  -v "$PWD":/work \
+  -w /work \
+  -p 8888:8888 \
+  ghcr.io/maltinho96/baltic-getm:v0.2 \
+  jupyter lab --ip=0.0.0.0 --no-browser

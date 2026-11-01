@@ -11,4 +11,4 @@ docker run --rm -it \
   -e MPLCONFIGDIR=/tmp/matplotlib \
   -v "$PWD":/work \
   -w /work \
-  ghcr.io/maltinho96/baltic-getm:v0.1 "$@"
+  ghcr.io/maltinho96/baltic-getm:v0.2 "$@"

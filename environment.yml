@@ -1,13 +1,20 @@
-# Pakete für das 3D-Image (alle aus conda-forge)
-# FAIR: nach dem ersten Build Versionen festschreiben mit
-#   ./run.sh micromamba env export > environment.lock.yml
+# Pakete für das Image (alle aus conda-forge)
+# FAIR: nach dem Bauen Versionen festschreiben mit
+#   docker run --rm ghcr.io/maltinho96/baltic-getm:v0.2 micromamba env export > environment.lock.yml
 name: base
 channels:
   - conda-forge
 dependencies:
   - python=3.12
-  # Modell: pygetm bringt GETM-Kern, FABM (inkl. ERGOM) und MPI mit
+  # 3D-Modell: pygetm bringt GETM-Kern, FABM (inkl. ERGOM) und MPI mit
   - pygetm=0.9.23
+  # Werkzeuge zum Bauen von GOTM (1D) mit FABM
+  - gfortran
+  - binutils            # ar/ranlib zum Packen von Bibliotheken
+  - cmake
+  - make
+  - git
+  - netcdf-fortran
   # Daten herunterladen
   - cdsapi              # ERA5 (Copernicus Climate Data Store)
   - copernicusmarine    # Reanalyse, Ocean Colour (Copernicus Marine)
@@ -18,6 +25,9 @@ dependencies:
   - pyproj
   - xesmf               # Umrechnen zwischen Gittern
   - pandas
+  - openpyxl            # Excel-Dateien lesen
   # Auswerten und Plotten
   - matplotlib
+  - cmocean             # Farbskalen für Ozeandaten
+  - cartopy             # Karten mit Küstenlinien
   - jupyterlab
